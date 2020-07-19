@@ -1,13 +1,13 @@
 package com.fazekas.coding_challenge.exception;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.Date;
 
 @AllArgsConstructor(access = AccessLevel.PACKAGE)
 @NoArgsConstructor
+@Data
+@ToString
 public class ExceptionResponse {
 
     private Date timestamp;
