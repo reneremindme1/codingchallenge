@@ -4,6 +4,7 @@ import com.fazekas.coding_challenge.exception.ResourceNotFoundException;
 import com.fazekas.coding_challenge.model.User;
 import com.fazekas.coding_challenge.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -43,9 +44,10 @@ public class UserController {
     }
 
     @DeleteMapping(value = "/users/{id}")
-    public void deleteUser(
+    public ResponseEntity<Void> deleteUser(
             @PathVariable Long id
     ){
         userRepository.deleteById(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
